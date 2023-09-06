@@ -2,8 +2,8 @@
 int create_file(const char *filename, char *text_content)
 {
 	int ac, i, byteswritten, fp;
-
 	char *context;
+
 	i = 0;
 	if (!filename)
 		return (-1);
