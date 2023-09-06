@@ -10,7 +10,7 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, numofbytes, byteswritten, i;
+	int fd, byteswritten, i;
 	char *content;
 	
 	i = 0;

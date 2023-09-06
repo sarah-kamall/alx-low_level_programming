@@ -44,10 +44,14 @@ int create_file(const char *filename, char *text_content)
 		i++;
 		text_content++;
 	}
+	if (i == 0)
+	{
+		close(fp);
+		return (1);
+	}
 	byteswritten = write(fp, context, i);
 	if (byteswritten == -1)
 		return (-1);
 	close(fp);
 	return (1);
 }
-
