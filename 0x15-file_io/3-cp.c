@@ -23,10 +23,10 @@ int main(int argc, char **argv)
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	fp0 = open(filefrom, O_RDWR);
+	fp0 = open(filefrom, O_RDONLY);
 	if (access(filefrom, R_OK | F_OK) == -1 || fp0 == -1)
 	{
-		dprintf(2, "Error: Can't read from file%s\n", filefrom);
+		dprintf(2, "Error: Can't read from file %s\n", filefrom);
 		exit(98);
 	}
 	if (access(fileto, F_OK | W_OK) == -1)
@@ -39,15 +39,15 @@ int main(int argc, char **argv)
 	bytesread = read(fp0, buffer, 1024);
 	while (bytesread != 0)
 	{
-		if (access(filefrom, R_OK | F_OK) == -1 || fp0 == -1 || bytesread == -1)
+		if (bytesread == -1)
 		{
-			dprintf(2, "Error: Can't read from file%s\n", filefrom);
+			dprintf(2, "Error: Can't read from file %s\n", filefrom);
 			exit(98);
 		}
 		byteswritten = write(fp1, buffer, bytesread);
 		if (byteswritten == -1)
 		{
-			dprintf(2, "Error: Can't write to%s\n", fileto);
+			dprintf(2, "Error: Can't write to %s\n", fileto);
 			exit(99);
 		}
 		bytesread = read(fp0, buffer, 1024);
