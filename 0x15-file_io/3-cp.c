@@ -30,9 +30,9 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 	if (access(fileto, F_OK | W_OK) == -1)
-		fp1 = open(fileto, O_RDWR | O_CREAT | O_TRUNC, 0664);
+		fp1 = open(fileto, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	else
-		fp1 = open(fileto, O_RDWR | O_TRUNC);
+		fp1 = open(fileto, O_WRONLY | O_TRUNC);
 	buffer = malloc(1024);
 	if (!buffer)
 		return (-1);
