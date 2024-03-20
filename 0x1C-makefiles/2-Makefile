@@ -5,24 +5,5 @@ Name = school
 
 all :
 	$(CC) $(SRC) -o $(Name)
-
-To compile only the updated source files in a Makefile, you can take advantage of Make's built-in features to track dependencies and only rebuild files when their dependencies have changed.
-
-Here's a basic example of how you can achieve this:
-
-make
-Copy code
-CC = gcc
-CFLAGS = -Wall -Wextra
-
-SRCS = main.c utils.c
-OBJS = $(SRCS:.c=.o)
-EXECUTABLE = program
-
-all: $(EXECUTABLE)
-
-$(EXECUTABLE): $(OBJS)
-    $(CC) $(CFLAGS) -o $@ $^
-
-%.o: %.c
-    $(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c 
+	$(CC) $(CFLAGS) -c $< -o $@
