@@ -1,7 +1,4 @@
 CC = gcc 
 SRC =  main.c school.c
-OBJ = $(SRC: .c=.o)
-Name = school
 all :
-    $(CC) -c -o $(OBJ) $(SRC)
-	$(CC) $(SRC) -o $(Name)
+    $(CC) $(SRC) -o school
